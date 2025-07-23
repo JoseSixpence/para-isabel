@@ -45,38 +45,27 @@
       font-size: 1.2em;
     }
 
-    .galeria-animada {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 250px;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .galeria-animada .caminho {
+    .galeria {
       display: flex;
-      animation: deslizar 30s linear infinite;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      padding-bottom: 60px;
     }
 
-    .galeria-animada img {
+    .galeria img {
       width: 200px;
       height: auto;
-      margin: 0 15px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-      filter: brightness(1.2) saturate(1.3);
-      transition: transform 0.3s ease, filter 0.3s ease;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      filter: brightness(1.05) contrast(1.1);
     }
 
-    .galeria-animada img:hover {
+    .galeria img:hover {
       transform: scale(1.05);
-      filter: brightness(1.5) saturate(1.5);
-    }
-
-    @keyframes deslizar {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
     }
 
     @keyframes fadeIn {
@@ -104,13 +93,20 @@
     }
 
     @keyframes cair {
-      0% { transform: translateY(-100px); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
+      0% {
+        transform: translateY(-100px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
   <div class="flores">
+    <!-- Repete várias flores com posições aleatórias -->
     <span style="left: 10%;">🌸</span>
     <span style="left: 25%;">🌹</span>
     <span style="left: 40%;">🌺</span>
@@ -131,16 +127,11 @@
     Te prometo amor, respeito, cuidado e estar contigo em todos os momentos.
   </p>
 
-  <div class="galeria-animada">
-    <div class="caminho">
-      <!-- Duplicamos as imagens para o loop parecer infinito -->
-      <img src="Imagens/Imagem1.png" alt="Isabel sorrindo">
-      <img src="Imagens/Imagem2.png" alt="Isabel linda">
-      <img src="Imagens/Imagem3.png" alt="Isabel Arnuta">
-      <img src="Imagens/Imagem1.png" alt="Isabel sorrindo">
-      <img src="Imagens/Imagem2.png" alt="Isabel linda">
-      <img src="Imagens/Imagem3.png" alt="Isabel Arnuta">
-    </div>
+  <div class="galeria">
+    <!-- Caminhos corrigidos: imagens estão no mesmo nível do index.html -->
+    <img src="Imagem1.png" alt="Isabel sorrindo">
+    <img src="Imagem2.png" alt="Isabel linda">
+    <img src="Imagem3.png" alt="Isabel Arnuta">
   </div>
 
   <p class="assinatura">
